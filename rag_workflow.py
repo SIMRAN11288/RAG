@@ -6,7 +6,9 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import PyPDFLoader
 import requests
 import urllib.parse
+import os
 load_dotenv()
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 st.title('WHAT DO YOU WANT TO USE- DICTIONARY| CALCULATOR |INFO(rag-based)')
 def dictionary(word):
     url=f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
@@ -81,4 +83,5 @@ elif box=='Latest Apple Products info':
         else:
             st.warning("NO INPUT FOUND")
 else:
+
     st.write("Not able to process your query")
