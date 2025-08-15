@@ -7,3 +7,4 @@ langchain-community
 nltk
 faiss-cpu
 urllib.parse
+os
