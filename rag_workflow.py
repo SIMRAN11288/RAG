@@ -7,7 +7,6 @@ from langchain_community.document_loaders import PyPDFLoader
 import requests
 import urllib.parse
 import os
-load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 st.title('WHAT DO YOU WANT TO USE- DICTIONARY| CALCULATOR |INFO(rag-based)')
 def dictionary(word):
@@ -85,3 +84,4 @@ elif box=='Latest Apple Products info':
 else:
 
     st.write("Not able to process your query")
+
