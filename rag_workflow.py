@@ -52,7 +52,6 @@ def product_info(query):
     for output in result:
         return output.page_content
     
-st.write("Select 1 FOR dictionary\n Select 2 FOR math calculations\n Select 3 FOR APPLE LATEST AND UPCOMING PRODUCTS INFO")
 box=st.selectbox("you want to perform:",['Dictionary','Calculator','Latest Apple Products info'])
 
 if box=='Dictionary':
@@ -87,5 +86,6 @@ elif box=='Latest Apple Products info':
 else:
 
     st.write("Not able to process your query")
+
 
 
