@@ -52,7 +52,7 @@ def product_info(query):
     if results:
         docs,score=results[0]
         # adjust threshold (0.5 ~ 0.7)
-        if score<0.8:
+        if score<0.2:
             return "Sorry, This is not a latest apple product. We provide info only on latest apple products."
         else:
             return docs.page_content
@@ -96,6 +96,7 @@ elif box=='Latest Apple Products info':
 else:
 
     st.write("Not able to process your query")
+
 
 
 
