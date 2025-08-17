@@ -50,7 +50,7 @@ def product_info(query):
     
     results=vector_store.similarity_search_with_score (query,search_kwargs={'k':1})
     if results:
-        doc,score=results[0]
+        docs,score=results[0]
         # adjust threshold (0.5 ~ 0.7)
         if score<0.5:
             return "Sorry, This is not a latest apple product. We provide info only on latest apple products."
@@ -96,6 +96,7 @@ elif box=='Latest Apple Products info':
 else:
 
     st.write("Not able to process your query")
+
 
 
 
