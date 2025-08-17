@@ -48,7 +48,7 @@ def product_info(query):
     #vector store
     vector_store=FAISS.from_documents(docs,embedding=embedding_model)
     
-    results=vector_store.as_retriever (search_type='similarity',search_kwargs={'k':1})
+    results=vector_store.similarity_search_with_score (query,search_kwargs={'k':1})
     if results:
         doc,score=results[0]
         # adjust threshold (0.5 ~ 0.7)
@@ -96,6 +96,7 @@ elif box=='Latest Apple Products info':
 else:
 
     st.write("Not able to process your query")
+
 
 
 
