@@ -47,10 +47,20 @@ def product_info(query):
     
     #vector store
     vector_store=FAISS.from_documents(docs,embedding=embedding_model)
-    retriever=vector_store.as_retriever (search_type='similarity',search_kwargs={'k':1})
-    result=retriever.invoke(query)
-    for output in result:
-        return output.page_content
+    
+    results=vector_store.as_retriever (search_type='similarity',search_kwargs={'k':1})
+    if results:
+        doc,score=results[0]
+        # adjust threshold (0.5 ~ 0.7)
+        if score<0.5:
+            return "Sorry, This is not a latest apple product. We provide info only on latest apple products."
+        else:
+            return docs.page_content
+    else:
+        return "No, matching product found."
+    # result=retriever.invoke(query)
+    # for output in result:
+    #     return output.page_content
     
 box=st.selectbox("you want to perform:",['Dictionary','Calculator','Latest Apple Products info'])
 
@@ -86,6 +96,7 @@ elif box=='Latest Apple Products info':
 else:
 
     st.write("Not able to process your query")
+
 
 
 
