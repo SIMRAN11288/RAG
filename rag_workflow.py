@@ -11,7 +11,7 @@ import nltk
 nltk.download("punkt")
 nltk.download("punkt_tab")  # for newer NLTK versions
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-st.title('WHAT DO YOU WANT TO USE- DICTIONARY| CALCULATOR |INFO(rag-based)')
+st.title('WHAT DO YOU WANT TO USE- DICTIONARY| CALCULATOR |INFO(rag-based')
 def dictionary(word):
     url=f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
     req=requests.get(url)
@@ -53,7 +53,7 @@ def product_info(query):
         docs,score=results[0]
         # adjust threshold (0.5 ~ 0.7)
         if score<0.2:
-            return "Sorry, This is not a latest apple product. We provide info only on latest apple products."
+            return "Sorry, NOT RELEVANT Search."
         else:
             return docs.page_content
     else:
@@ -62,7 +62,7 @@ def product_info(query):
     # for output in result:
     #     return output.page_content
     
-box=st.selectbox("you want to perform:",['Dictionary','Calculator','Latest Apple Products info'])
+box=st.selectbox("you want to perform:",['Dictionary','Calculator','student mentor- Ask FAQs on maths of calss 10 and 12.Also on enhancement of english vocabulary'])
 
 if box=='Dictionary':
     word=st.text_input("ENTER A WORD TO GET ITS MEANING")
@@ -96,6 +96,7 @@ elif box=='Latest Apple Products info':
 else:
 
     st.write("Not able to process your query")
+
 
 
 
