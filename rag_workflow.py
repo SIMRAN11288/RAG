@@ -41,7 +41,7 @@ def product_info(query):
     sentence_splitter = NLTKTextSplitter() #Here you loop over each page and split it into sentences
     documents=sentence_splitter.split_documents(document)
     #2nd splitter 
-    sentence_splitter2=RecursiveCharacterTextSplitter(chunk_size=300,chunk_overlap=0)
+    sentence_splitter2=RecursiveCharacterTextSplitter(chunk_size=500,chunk_overlap=0)
     #split_text() expects a single string, not a list, so if you pass sentences (which is a list), it won’t work correctly.
     docs=sentence_splitter2.split_documents(documents)
     
@@ -89,6 +89,7 @@ elif box=='Student Mentor':
 else:
 
     st.write("Not able to process your query")
+
 
 
 
