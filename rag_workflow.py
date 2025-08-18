@@ -30,7 +30,7 @@ def cal(problem):
         return f'ERROR:{res.status_code}'
         
 def product_info(query):
-    loader=PyPDFLoader('apple_products.pdf')
+    loader=PyPDFLoader('Student_mentor.pdf')
     document=loader.load()
     embedding_model=GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     #document returned a list of document objects (page_content + meta_data)
@@ -96,6 +96,7 @@ elif box=='Latest Apple Products info':
 else:
 
     st.write("Not able to process your query")
+
 
 
 
