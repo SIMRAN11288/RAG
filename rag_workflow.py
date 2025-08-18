@@ -46,19 +46,12 @@ def product_info(query):
     docs=sentence_splitter2.split_documents(documents)
     
     #vector store
-    vector_store=FAISS.from_documents(docs,embedding=embedding_model)
     
-    results=vector_store.similarity_search_with_score (query,search_kwargs={'k':1})
-    if results:
-        docs,score=results[0]
-        # adjust threshold (0.5 ~ 0.7)
-        if score<0.2:
-            return "Sorry, NOT RELEVANT Search."
-        else:
-            return docs.page_content
-    else:
-        return "No, matching product found."
-    # result=retriever.invoke(query)
+    vector_store=FAISS.from_documents(docs,embedding=embedding_model)
+    retriever=vector_store.as_retriever (search_type='similarity',search_kwargs={'k':1})
+    result=retriever.invoke(query)
+    for output in result:
+        return output.page_content
     # for output in result:
     #     return output.page_content
     
@@ -96,6 +89,7 @@ elif box=='Student Mentor':
 else:
 
     st.write("Not able to process your query")
+
 
 
 
