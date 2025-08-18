@@ -85,8 +85,8 @@ elif box=='Calculator':
         else:
             st.warning("please enter an expression")
      
-elif box=='Latest Apple Products info':
-    query=st.text_input("Info regarding which latest Apple Product")
+elif box=='Student Mentor':
+    query=st.text_input("FAQs")
     if st.button('Fetch Information'):
         if query:
             result=product_info(query)
@@ -96,6 +96,7 @@ elif box=='Latest Apple Products info':
 else:
 
     st.write("Not able to process your query")
+
 
 
 
