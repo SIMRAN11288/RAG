@@ -11,7 +11,7 @@ import nltk
 nltk.download("punkt")
 nltk.download("punkt_tab")  # for newer NLTK versions
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-st.title('WHAT DO YOU WANT TO USE- DICTIONARY| CALCULATOR |student mentor- Ask FAQs on maths of calss 10 and 12.Also on enhancement of english vocabulary')
+st.title('WHAT DO YOU WANT TO USE- DICTIONARY| CALCULATOR |student mentor- Ask FAQs on maths of clsss 10 and 12.Also on enhancement of english vocabulary')
 def dictionary(word):
     url=f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
     req=requests.get(url)
@@ -89,6 +89,7 @@ elif box=='Student Mentor':
 else:
 
     st.write("Not able to process your query")
+
 
 
 
